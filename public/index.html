@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot AI — Interactive Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Latar Belakang Ambient -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="chat-card">
+      <!-- Header Interaktif -->
+      <header class="chat-header">
+        <div class="header-brand">
+          <div class="brand-avatar" id="brandAvatar" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+          </div>
+          <div class="brand-info">
+            <div class="brand-title-row">
+              <h1>Chatbot AI</h1>
+              <span class="ai-badge">AI</span>
+            </div>
+            <p class="status-text" id="statusText">
+              <span class="status-dot" id="statusDot"></span>
+              <span id="statusLabel">Online · Siap membantu Anda</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Tombol Ganti Tema (Light / Dark) -->
+          <button
+            type="button"
+            class="icon-action-btn"
+            id="themeToggleBtn"
+            title="Ganti tema gelap/terang"
+            aria-label="Ganti tema"
+          >
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- Tombol Reset Percakapan -->
+          <button
+            type="button"
+            class="icon-action-btn"
+            id="resetChatBtn"
+            title="Mulai ulang percakapan"
+            aria-label="Reset percakapan"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Area Percakapan -->
+      <div class="chat-body-wrapper">
+        <main class="chat-box" id="chatBox" aria-live="polite"></main>
+
+        <!-- Tombol Scroll ke Bawah -->
+        <button
+          type="button"
+          class="scroll-bottom-btn"
+          id="scrollBottomBtn"
+          aria-label="Gulir ke pesan terbaru"
+          title="Ke pesan terbaru"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Input Pesan -->
+      <footer class="chat-footer">
+        <form class="chat-input-form" id="chatForm">
+          <textarea
+            id="userInput"
+            rows="1"
+            placeholder="Tanyakan apa saja..."
+            aria-label="Ketik pesan"
+            required
+          ></textarea>
+          <button type="submit" id="sendBtn" aria-label="Kirim pesan" disabled>
+            <svg class="send-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+        <div class="footer-meta">
+          <span>Tekan <strong>Enter</strong> untuk mengirim · <strong>Shift + Enter</strong> baris baru</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
